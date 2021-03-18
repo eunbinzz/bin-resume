@@ -47,12 +47,12 @@ $('.slide_group1 > div img').on('click', function () {
         .append(`<img src="${src}" alt="${alt}"><div class="popup"><h3>${txt1}</h3><p>${txt2}</p><p>${txt3}</p><p><a href="${href}" target="_blank">${txt4}</a></p></div>`)
         .append('<button class="close"><i class="fas fa-times"></i></button>')
     $('.popup').css({background: '#fff', height: '280px', width: '446px'})
-    $('.popup h3').css({fontSize: '21px', paddingBottom: '30px', fontWeight: 'bold',
+    $('.popup h3').css({fontSize: '22px', paddingBottom: '26px', fontWeight: 'bold',
                         paddingLeft: '20px', paddingTop: '20px'})
-    $('.popup p').eq(0).css({fontSize: '17px', paddingBottom: '30px',
-                             paddingRight: '20px', paddingLeft: '20px', lineHeight: '1.3'})
-     $('.popup p').eq(1).css({fontSize: '15px', paddingBottom: '30px',
-                             paddingRight: '20px', paddingLeft: '20px', lineHeight: '1.3'})
+    $('.popup p').eq(0).css({paddingBottom: '26px', lineHeight: '1.5', wordBreak: 'keep-all',
+                             paddingRight: '20px', paddingLeft: '20px',})
+     $('.popup p').eq(1).css({fontSize: '15px', paddingBottom: '26px',
+                             paddingRight: '20px', paddingLeft: '20px', lineHeight: '1.5'})
     $('.popup p').eq(2).css({ textAlign: 'center', paddingTop: '10px'})
     $('.popup p').eq(2).find('a').css({background: '#333', color: '#fff', paddingLeft: '20px',
                                        padding: '5px 10px', borderRadius: '5px',
@@ -269,11 +269,9 @@ $('ul li').on('click', function(){
 
 
 //loading
-// $('.bookset-2').on('load', function(){
-//     setTimeout(function(){
-//         $('.loading i').fadeOut(500)
-//     }, 1000)
-// })
-// $('.loading').on('click', function(){
-//     $(this).fadeOut(100)
-// })
+$(window).on('load', function(){
+    setTimeout(function(){
+        $('.loading').fadeOut(500)
+    }, 1000000)
+})
+
