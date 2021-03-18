@@ -1,0 +1,252 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda&family=Noto+Serif+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128&display=swap');
+
+.row {max-width: 1000px; padding: 0 10px; margin: 2px auto 0px;}
+body {font-family: 'Bodoni Moda', serif; font-family: 'Noto Serif KR', serif;}
+* {outline: none; }
+
+/* #wrap .main {background: url(../img/bg.jpg); no-repeat center; background-size: cover;  height: 100vh;} */
+
+
+/* header구역 */
+        /* #header .slide { position: relative;} */
+/* #header {background :#ddd; font-size: 17px; padding: 2px 0; color: #000; height: 4vh;}
+#header .sns {float: right; margin-bottom: 1.5px;}
+#header .sns a {padding: 20px;}
+#header .sns a:hover {color:forestgreen; font-weight: bold;} */
+
+/* slide_group1 부분 */
+.slide_outer1 {height: 16vh; position: relative; background: rgba(0,0,0,0.5); 
+               border-top: 3px solid #555; border-bottom: 3px solid #555;}
+.slide_group1 {margin: 0 250px;}
+                /* background: #222; */
+.slide_group1 .slide {height: calc(16vh - 6px);}
+.slide_group1 img {margin: 0 auto; height: 16vh;}
+
+
+
+
+/* footer부분 */
+footer .bottom {background: #ddd; padding: 10px 0; text-align: center; font-size: 12px;
+        line-height: 12px; color: #000; font-weight: 600;}
+  
+/* gotop부분 */
+/* .gotop {position: fixed; bottom: 10%; right: 5%; transition: all 0.5s;
+        color: #fff; background-color: rgba(0,0,0,0.7);
+        width: 42px; height: 42px; text-align: center; border-radius: 10px;
+        line-height: 42px; opacity: 0;}
+.gotop.on {opacity: 1}
+.gotop a {display: block}
+.gotop a:hover {background: forestgreen; border-radius: 10px;}
+ */
+
+
+
+/* 모달박스 */
+.outbox {position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+          z-index: 999999; background: rgba(0,0,0,0.8)}               
+.inbox {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)}
+.close {position: absolute; top: -18px; right: -10px;
+        background: none; border: none; font-size: 45px; color: green}
+
+
+/* 대환장 */
+.mainpage {height: 96vh;}
+.mainbox {height: 84vh; position: relative; margin: 0 auto; background: #eee; }
+.book {max-width: 40%; height: 65vh; margin: 0 auto;
+        /* background: darkorange; border: 3px solid red; box-shadow: 10px 10px 5px grey;*/
+        transform-style: preserve-3d; perspective: 2000px; 
+        animation-duration: 2s; animation-fill-mode: both;}
+        /* left: 50%; */
+.thumbtack {position: absolute; font-size: 35px; color: rgb(255, 0, 0);
+           top: -15px; right: -15px; transform: rotate(40deg);}        
+.postit {border: 1px solid rgb(251, 255, 0); width: 16%; height: 58vh; transform: translateY(8%);
+        float: left; background: linear-gradient(to bottom left, rgba(252, 255, 54, 0.3), rgba(251, 255, 0)); 
+        padding: 2% 1%; margin-top: 6%;box-shadow: 8px 8px 5px rgba(0,0,0,0.1);
+        transform: rotate(-5deg); margin-left: 5%; }
+        /* position: absolute; box-shadow: 10px 10px rgb(186, 189, 0); */
+.postit h1 {font-size: 25px; text-align: center; font-weight: bold; padding-bottom: 70px; }
+        
+.postit ul {line-height: 2; list-style: disc; padding-left: 6%}
+
+
+
+/* 책 펼치기 구현 */
+div[class*="bookset"] {width: 100%; height: 100%; position: absolute;
+        transform-style: preserve-3d; transform-origin: left;
+         transition: 2s; padding-top: 10% }
+.book-left {width: 100%; height: 100%; position: absolute;
+            background-repeat: no-repeat; 
+            background-size: cover;
+            transform: rotateY(180deg);}
+.book-right {width: 100%; height: 100%; position: absolute; box-shadow: 8px 8px 5px rgba(0,0,0,0.1);
+             background-repeat: no-repeat;
+             background-size: cover;}
+.book.on {animation-name: move;} 
+/* .book.off {animation-name: return;}  */
+.book > div[class*="bookset"].on {animation-fill-mode: both;
+                                  animation-duration: 2s, 2s; 
+                                  animation-name: flip, index }
+.book > div[class*="bookset"].off {animation-fill-mode: both;
+                                   animation-duration: 2s; 
+                                   animation-name: flip2 }
+@keyframes move{ 0% {} 100% {transform: translateX(70%)}} 
+/* @keyframes return{ 0% {} 100% {transform: translateX(-70%)}}  */
+@keyframes flip{ 0% {} 100% {transform: rotateY(-180deg)}} 
+@keyframes index{ 0% {} 50%{z-index: 0;} 100% {z-index: 0;}}  
+@keyframes flip2{ 0% { transform: rotateY(-180deg) } 100% {transform: rotateY(0deg)}}
+
+.bookset {z-index: 6;}
+.bookset-1 {z-index: 5;}
+.bookset-2 {z-index: 4;}
+.bookset-3 {z-index: 3;}
+.bookset-4 {z-index: 2;}
+.bookset-5 {z-index: 1;}
+
+
+/* boobox 공통 */
+.bookbox {border: 1px solid #333; width: 96%; margin: 0 auto;
+         height: 96%; transform: translateY(2%);
+         padding-bottom: 10px; padding-left: 10px; padding-right: 10px; padding-top: 10px;}
+         /* position: relative; */
+.bookbox h2 {text-align: center; font-size: 28px; background: #999; padding-top: 3%;  
+             font-style: italic; font-weight: bold; padding-bottom: 3%; }
+
+
+/* 표지 */
+#cover {font-size: 20px;}
+/* .cover {position: absolute; top: 0; left: 0; right: 0; bottom: 0; } */
+.cover h1 {font-size: 50px; text-align: center; padding-top: 10%; font-weight: bold;
+           background: #ddd; padding-bottom: 10%; border-bottom: 2px solid #333; }
+.cover p {font-size: 28px; text-align: right; padding-right: 4%; 
+          padding-top: 38%; font-weight: bold}
+
+
+/* 1page */
+.aboutme img {width: 50%; position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%)}
+
+
+/* 2page aboutme*/
+.myinfo {width: 100%; line-height: 2; padding: 13% 5% 10%;}
+                        /*  background: red;  */
+.myinfo li {border-bottom: 2px solid #000; padding-top: 3%; font-size: 18px; letter-spacing: 1.5px;}
+.myinfo li:nth-child(1) {font-size: 25px; font-weight: 600; letter-spacing: 3px;}
+.myinfo li span {font-size: 20px; font-weight: 600;}
+.aboutme2 .sns {font-size: 25px; padding-top: 4%; text-align: center;}
+                        /*  background: coral; */
+.aboutme2 .sns i {padding: 0 10px; }
+.aboutme2 .sns a:hover {color:forestgreen; font-weight: bold;}
+
+
+/* 3page history*/
+.history h2 {margin-bottom: 8%;}
+.history table thead tr {border-bottom: 1px solid #000; border-top: 1px solid #000;}
+.history table thead tr > th {font-weight: 700; font-size: 20px; padding-top: 2%;
+                               padding-bottom: 2%; text-align: left; padding-left: 3%;}
+.history col:nth-child(1) {width: 33%}
+.history col:nth-child(2) {width: auto}
+.history tr td {line-height: 2; padding-left: 2%; font-size: 17px;}
+
+
+/* 4page Certificate */
+.certificate {position: relative;}
+.certificate h2 {margin-bottom: 8%;}
+.certificate ul {font-size: 17px; padding-left: 3%; line-height: 2;}
+.loading i {font-size: 50px; position: absolute; top: 70%;  z-index: 999999999;
+            transform: translate(-50%, -50%); left: 50%;}
+            /* animation: spin 2s linear infinite */
+/* @keyframes spin {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg)}} */
+.loading p {font-size: 20px; position: absolute; top: 70%;  z-index: 999999999;
+            transform: translate(-50%, -50%); left: 65%}
+
+
+/* 5page skill*/
+.skill {position: relative;}
+.skill h2 {margin-bottom: 8%;}
+.graph {height: 70%; bottom: 5%; position: absolute; left:0; right: 0; background: red;}
+                            /* border: 1px solid red;  */
+.graph > div {display: inline-block; width: 14%; height: 80%}
+.graph > div p {text-align: center;}
+.score {height: 100%; position: relative;}
+.myscore {position: absolute; bottom: 1%; width: 50%; left: 50%; transform: translate(-50%);
+           font-size: 17px;}
+.html .myscore {height: 90%; background: greenyellow;}
+/* .graph.on .html .myscore {animation: htmlani 1s both 0s;} */
+.css .myscore {height: 80%; background:lime;}
+/* .graph.on .css .myscore {animation: cssani 1s both 0.5s;} */
+.script .myscore {height: 70%; background: limegreen;}
+/* .graph.on .script .myscore {animation: scriptani 1s both 1s;} */
+.jquery .myscore {height: 60%; background: yellowgreen;}
+/* .graph.on .jquery .myscore {animation: jqueryani 1s both 1.5s;} */
+.photoshop .myscore {height: 50%; background:darkgreen;}
+/* .graph.on .photoshop .myscore {animation: photoani 1s both 2.5s;} */
+.illustrator .myscore {height: 40%; background: forestgreen;}
+/* .graph.on .react .myscore {animation: illuani 1s both 2s;} */
+/* @keyframes htmlani {0% {height: 0; opacity: 0;} 100% {height: 90%; opacity: 1;}}
+@keyframes cssani {0% {height: 0; opacity: 0;} 100% {height: 80%; opacity: 1;}}
+@keyframes scriptani {0% {height: 0; opacity: 0;} 100% {height: 70%; opacity: 1;}}
+@keyframes jqueryani {0% {height: 0; opacity: 0;} 100% {height: 60%; opacity: 1;}}
+@keyframes photoani {0% {height: 0; opacity: 0;} 100% {height: 40%; opacity: 1;}}
+@keyframes illuani {0% {height: 0; opacity: 0;} 100% {height: 50%; opacity: 1;}}
+  */
+
+
+/* 7page resume*/
+.resume {position: relative;}
+.resume img {width: 40%; position: absolute; top: 60%; left: 50%;
+             transform: translate(-50%, -50%)}
+.resume a {text-align: right; position: absolute; bottom: 2%; right: 15%;
+           transform: translate(-50%, -50%); font-size: 42px;
+            color: #333;}
+
+
+/* 8page letter */
+.letter {position: relative;}
+.letter img {width: 40%; position: absolute; top: 60%; left: 50%;
+             transform: translate(-50%, -50%)}
+.letter a {text-align: right; position: absolute; bottom: 2%; left: 21%;
+           transform: translate(-50%, -50%); font-size: 42px;
+            color: #333;}
+
+/* 9page please */
+.please h2 {margin-bottom: 3%;}
+.form1 {border: 2px solid #000; border-radius: 10px; }
+.form1 fieldset {margin: 2% 3%}  
+.form1 p {padding: 1% 0; text-align: left;}
+.form1 label {width: 25%; display: inline-block; font-size: 18px; font-weight: bold;}
+.form1 input {border: 1px solid #333; width: 18%; padding: 1% 0; vertical-align: middle;}
+.form1 #message {width: 58%; height: 80px; text-align: left; 
+                 vertical-align: top; border: 1px solid #333}
+.form1 p:nth-of-type(4) > label {vertical-align: top;}
+.form1 input[type=file] {border: none;}
+.form1 #attach {width: 60%;}
+.form1 p:nth-of-type(6) {text-align: center; margin-top: 5%}
+.form1 p:nth-of-type(6) button {padding: 0.5% 3%; font-size: 18px; border-radius: 5px; margin: 0 6px;
+                                font-family: 'Bodoni Moda', serif; background: #777;}
+.form1 P:nth-of-type(6) button[type=submit]:hover {background :forestgreen}
+.form1 P:nth-of-type(6) button[type=reset] {cursor: pointer;}
+.form1 P:nth-of-type(6) button[type=reset]:hover {background: forestgreen}
+.please ::placeholder {color: #222; font-family: 'Noto Serif KR', serif; 
+                        padding-left: 1%; font-size: 13px;}
+
+
+/* 10page thanks */
+.thanks {position: relative;}
+.thanks .mention {width: 100%; line-height: 2; padding: 15% 5% 20%;}
+.thanks span {font-size: 50px; font-weight: bold; font-family: 'Cedarville Cursive', cursive;
+              position: absolute; bottom: 7%; right: 3%; transform: rotate(-7deg);}
+
+              
+
+/* 11page back */
+/* .back {position: relative;} */
+.thanks {position: relative;}
+.back > p {line-height: 2; text-align: center; background: #555; margin-top: 40%; }
+.back .barcode p:nth-child(1) {font-family: 'Libre Barcode 128', cursive; font-size: 45px;
+                              text-align: right; margin-top: 15%;
+                              position: absolute; bottom: 8%; right: 3%; }     
+.back .barcode p:nth-child(2) {position: absolute; bottom: 7%; right: 3%; }
