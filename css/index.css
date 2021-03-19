@@ -50,7 +50,7 @@ footer .bottom {background: #ddd; padding: 10px 0; text-align: center; font-size
           z-index: 999999; background: rgba(0,0,0,0.8)}               
 .inbox {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)}
 .close {position: absolute; top: -18px; right: -10px;
-        background: none; border: none; font-size: 45px; color: #777}
+        background: none; border: none; font-size: 40px; color: #999}
 
 
 /* 대환장 */
