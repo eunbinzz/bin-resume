@@ -46,7 +46,7 @@ $('.slide_group1 > div img').on('click', function () {
     $('.inbox').css({position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'})
         .append(`<img src="${src}" alt="${alt}"><div class="popup"><h3>${txt1}</h3><p>${txt2}</p><p>${txt3}</p><p><a href="${href}" target="_blank">${txt4}</a></p></div>`)
         .append('<button class="close"><i class="fas fa-times"></i></button>')
-    $('img').css({border: '7px solid #fff'})
+    $('.inbox img').css({border: '7px solid #fff'})
     $('.popup').css({background: '#fff', height: '280px', width: '460px'})
     $('.popup h3').css({fontSize: '22px', paddingBottom: '26px', fontWeight: 'bold',
                         paddingLeft: '20px', paddingTop: '20px'})
