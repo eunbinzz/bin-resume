@@ -1,3 +1,3 @@
-# bin-resume
+# resume
 
-https://eunbinzz.github.io/bin-resume/
+https://eunbinzz.github.io/resume/
